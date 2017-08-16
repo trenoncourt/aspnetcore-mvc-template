@@ -1,0 +1,108 @@
+﻿{
+  "author": "Thibaut Renoncourt (RehanSaeed.com)",
+  "classifications": [ "API" ],
+  "name": "aspnetcore api template",
+  "shortName": "api",
+  "sourceName": "ApiTemplate",
+  "preferNameDirectory": true,
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "condition": "(!Swagger)",
+          "exclude": [
+            "Constants/HomeControllerRoute.cs",
+            "Controllers/HomeController.cs",
+            "ViewModelSchemaFilters/**/*"
+          ]
+        },
+        {
+          "condition": "(!HealthCheck)",
+          "exclude": [
+            "Constants/StatusControllerRoute.cs",
+            "Controllers/StatusController.cs"
+          ]
+        },
+        {
+          "condition": "(!CORS)",
+          "exclude": [
+            "Constants/CorsPolicyName.cs"
+          ]
+        },
+        {
+          "condition": "(!HumansTxt)",
+          "exclude": [
+            "wwwroot/humans.txt"
+          ]
+        },
+        {
+          "condition": "(!RobotsTxt)",
+          "exclude": [
+            "wwwroot/robots.txt"
+          ]
+        }
+      ]
+    }
+  ],
+  "symbols": {
+    "Title": {
+      "type": "parameter",
+      "datatype": "string",
+      "defaultValue": "Title",
+      "replaces": "TITLE"
+    },
+    "Description": {
+      "type": "parameter",
+      "datatype": "string",
+      "defaultValue": "Description",
+      "replaces": "DESCRIPTION"
+    },
+    "Author": {
+      "type": "parameter",
+      "datatype": "string",
+      "defaultValue": "Author",
+      "replaces": "AUTHOR"
+    },
+    "CORS": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "true"
+    },
+    "ReverseProxyWebServer": {
+      "type": "parameter",
+      "datatype": "choice",
+      "choices": [
+        {
+          "choice": "IIS"
+        },
+        {
+          "choice": "NGINX"
+        }
+      ],
+      "defaultValue": "IIS"
+    },
+    "IIS": {
+      "type": "computed",
+      "value": "(ReverseProxyWebServer == \"IIS\")"
+    },
+    "NGINX": {
+      "type": "computed",
+      "value": "(ReverseProxyWebServer == \"NGINX\")"
+    },
+    "Swagger": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "true"
+    },
+    "ResponseCaching": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "true"
+    },
+    "HealthCheck": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "true"
+    }
+  }
+}
