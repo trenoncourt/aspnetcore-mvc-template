@@ -1,9 +1,9 @@
 ﻿{
-  "author": "Thibaut Renoncourt (RehanSaeed.com)",
+  "author": "Thibaut Renoncourt",
   "classifications": [ "API" ],
   "name": "aspnetcore api template",
   "shortName": "api",
-  "sourceName": "ApiTemplate",
+  "sourceName": "AspNetCoreApi",
   "preferNameDirectory": true,
   "sources": [
     {
